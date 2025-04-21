@@ -50,29 +50,30 @@ const Navbar = () => {
   };
 
   return (
-    <div className="">
-      <div className="flex flex-row items-center justify-between bg-gray-400 h-20 w-full p-4">
+    <div className="min-h-screen flex flex-col">
+      {/* Navbar */}
+      <div className="flex flex-row items-center justify-between bg-gray-800 h-20 w-full p-4">
         <div>
-          <h1 className=" text-3xl font-bold text-white">
+          <h1 className="text-3xl font-bold text-white">
             <Link to="/home">Trendy Cart</Link>
           </h1>
         </div>
         <div>
           {!user ? (
             <ul className="flex flex-row gap-4">
-              <li className=" text-2xl font-bold text-white">
+              <li className="text-2xl font-bold text-white">
                 <Link to="/register">Register</Link>
               </li>
-              <li className=" text-2xl font-bold text-white">
+              <li className="text-2xl font-bold text-white">
                 <Link to="/login">Login</Link>
               </li>
             </ul>
           ) : (
-            <div className=" flex flex-row gap-2 align-middle justify-center">
-              <p className=" p-2 text-2xl font-bold text-white">
+            <div className="flex flex-row gap-2 items-center justify-center">
+              <p className="p-2 text-2xl font-bold text-white">
                 <Link to="/home">{user.name}</Link>
               </p>
-              {user && <div className=" p-2 text-2xl font-bold text-white flex flex-row gap-2">
+              <div className="p-2 text-2xl font-bold text-white flex flex-row gap-2">
                 <Link to="/cart">Cart</Link>
                 <div className="relative">
                   <i className="fa fa-shopping-cart text-2xl"></i>
@@ -82,10 +83,10 @@ const Navbar = () => {
                     </span>
                   )}
                 </div>
-              </div>}
+              </div>
               <button
                 onClick={handleLogout}
-                className=" p-2 bg-red-500 hover:bg-red-600 rounded-xl text-2xl font-bold text-white"
+                className="p-2 bg-red-500 hover:bg-red-600 rounded-xl text-2xl font-bold text-white"
               >
                 Logout
               </button>
@@ -93,7 +94,16 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      <Outlet />
+
+      {/* Main Content */}
+      <div className="flex-grow">
+        <Outlet />
+      </div>
+
+      {/* Footer */}
+      <footer className="w-full bg-gray-800 text-white py-3 px-6 text-center text-sm">
+        © 2025 Trendy Cart. All rights reserved.
+      </footer>
     </div>
   );
 };

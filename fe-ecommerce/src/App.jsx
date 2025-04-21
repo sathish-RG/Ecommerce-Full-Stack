@@ -12,6 +12,7 @@ import UserDetailes from './pages/UserDetailes'
 import Cart from './pages/Cart'
 import Products from './pages/Products'
 import Checkout from './pages/Checkout'
+import ProductDetails from './pages/ProductDetails'
 
 
 const App = () => {
@@ -55,7 +56,11 @@ const App = () => {
   {
     path:'/checkout',
     element:<Checkout/>
-  }
+  },
+  {
+    path:'/product/:id',
+    element:<ProductDetails/>
+  }  
   ]}
   ])
   return (

@@ -15,7 +15,8 @@ userRouter.delete('/cart/:productId', auth.checkAuth, auth.allowRoles(['user']),
 userRouter.delete('/cart', auth.checkAuth, auth.allowRoles(['user']), userController.clearCart);
 userRouter.put('/cart/update/:productId',auth.checkAuth,auth.allowRoles(['user']),userController.updateQuantity);
 
-userRouter.get('/products',productController.getAllProducts)
+userRouter.get('/products',productController.getAllProducts);
+userRouter.get('/product/:id', productController.getProductById);
 
 
 module.exports = userRouter;
